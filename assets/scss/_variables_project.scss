@@ -4,6 +4,20 @@ Add styles or override variables from the theme here.
 
 */
 
+nav.td-navbar {
+  background: #30638e !important;
+}
+
 #td-cover-block-0 {
   background-image: url(/bg.svg) !important;
+}
+
+.navbar-logo {
+}
+
+.navbar-logo img {
+  width: 20px;
+  vertical-align: baseline;
+  margin-right: 4px;
+  margin-bottom: -2px;
 }

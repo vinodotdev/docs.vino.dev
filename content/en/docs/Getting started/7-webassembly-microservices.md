@@ -3,7 +3,7 @@ title: "Running your WebAssembly component as a microservice"
 linkTitle: "WebAssembly Microservices"
 weight: 6
 description: >
-  Use `vow` to turn any WebAssembly module into a standalone microservice
+  Use `vow` to turn any WebAssembly module into a standalone microservice for free.
 ---
 
 To turn your WebAssembly module into a microservice, change the command you use with `vow` from `run` to `serve` and remove the extra flags. That's it.
