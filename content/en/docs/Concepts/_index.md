@@ -1,7 +1,7 @@
 ---
 title: "Concepts"
 linkTitle: "Concepts"
-weight: 4
+weight: 1
 description: >
-  Important terminology, related projects, etc.
+  Vino terminology and the philosophy that guides the platform.
 ---

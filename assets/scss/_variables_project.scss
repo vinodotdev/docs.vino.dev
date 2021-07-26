@@ -61,3 +61,55 @@ nav.td-navbar {
   margin-right: 4px;
   margin-bottom: -2px;
 }
+
+.field-note {
+  font-weight: bold;
+  font-style: italic;
+  color: $gray-600;
+}
+.annotation {
+  color: $warning;
+}
+
+.field-name {
+  font-family: monospace;
+  color: $dark;
+  font-size: 1.3em;
+}
+
+.field-type {
+  color: $blue;
+}
+
+.fields {
+  padding-left: 15px;
+  border-left: 1px solid $dark;
+}
+.field {
+  margin-bottom: 10px;
+}
+.field-notes {
+  margin-bottom: 30px;
+}
+
+.definition {
+  padding-left: 15px;
+  // border-left: 1px solid $dark;
+  margin-bottom: 60px;
+}
+
+.description {
+  margin-bottom: 10px;
+  display: block;
+}
+.optional {
+  margin-left: 5px;
+  font-size: 0.9em;
+}
+
+:target::before {
+  content: "";
+  display: block;
+  height: 60px; /* fixed header height*/
+  margin: -60px 0 0; /* negative fixed header height */
+}
