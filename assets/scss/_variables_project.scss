@@ -1,20 +1,20 @@
-/*
+$main-brand: #479bbc !default;
+$light-shades: #f0f5f4 !default;
+$light-accent: #8ba69c !default;
+$dark-accent: #737083 !default;
+$dark-shades: #22334d !default;
 
-Add styles or override variables from the theme here.
-
-*/
-
-$primary: #4e325b !default;
+$primary: $main-brand !default;
 $primary-light: lighten($primary, 75%) !default;
 $secondary: #ffa630 !default;
 $success: #3772ff !default;
 $info: #c0e0de !default;
 $warning: #ed6a5a !default;
 $danger: #ed6a5a !default;
-$white: #fff !default;
-$light: #fcf7e9 !default;
+$white: lighten($light-shades, 50%) !default;
+$light: $light-shades !default;
 
-$dark: #403f4c !default;
+$dark: $dark-shades !default;
 $blue: #72a1e5 !default;
 $orange: #ba5a31 !default;
 $gray-100: #f8f9fa !default;
@@ -36,16 +36,8 @@ $border-color: $gray-300 !default;
 $td-sidebar-bg-color: rgba($primary, 0.03) !default;
 $td-sidebar-border-color: $border-color !default;
 
-$google_font_name: "Open Sans" !default;
-$google_font_family: "Open+Sans:300,300i,400,400i,700,700i" !default;
-$web-font-path: "https://fonts.googleapis.com/css?family=#{$google_font_family}";
-
-$td-fonts-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-  "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-  "Segoe UI Symbol";
-
 nav.td-navbar {
-  background: #4e325b !important;
+  background: $dark !important;
 }
 
 #td-cover-block-0 {
