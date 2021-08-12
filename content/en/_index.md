@@ -11,7 +11,7 @@ weight: 1
 		Get Started <i class="fas fa-arrow-alt-circle-right ml-2"></i>
 	</a>
 	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://releases.vino.dev/">
-		Download <i class="fab fa-github ml-2 "></i>
+		Download <i class="fa fa-download ml-2 "></i>
 	</a>
 </div>
 {{< /blocks/cover >}}
