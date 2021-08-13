@@ -10,11 +10,7 @@ A single component isn't always that useful and Vino providers give you the abil
 
 Before we think about writing any code, we have to define the contract first. Make a new `widl` file in the `schemas/` directory. Let's call it "concatenate.widl" and save it with the following:
 
-```sh
-$ touch schemas/concatenate.widl
-```
-
-```graphql
+```graphql {title="./schemas/concatenate.widl"}
 namespace "concatenate"
 
 type Inputs {
@@ -30,7 +26,7 @@ type Outputs {
 {{% pageinfo %}}
 _Without knowing anything about the implementation, can you guess what this component will do? If you guessed that it is going combine two strings together as output, you're correct!_
 
-_That scenario sounds silly but the self-describing nature of Vino components is an important one. Since ports can connect to anything and components aren't sequential lists of commands (i.e. functions), each component can be laser focused on its purpose. You don't need to pass unrelated data just to propagate it to a downstream consumer._
+_This scenario is contrived but it extends passed "Hello World" style tutorials and is an important part of programming on Vino. Components don't need to accept data they don't act on, so you won't often see many inputs nor complex types as input. You'll usually deal with small bits of data like strings and numbers. Component ports connect directly to each other in a graph (a [schematic](/concepts/terminology)), freeing each component to be laser focused on its purpose._
 {{% /pageinfo %}}
 
 ### Generate the new code
@@ -46,14 +42,12 @@ $ make codegen
 Add this rust code to the new `src/components/concatenate.rs` file.
 
 ```rust
-use wapc_guest::prelude::*;
-
 use crate::generated::concatenate::*;
 
-pub(crate) fn job(input: Inputs, output: Outputs) -> HandlerResult<()> {
+pub(crate) fn job(input: Inputs, output: Outputs) -> JobResult {
   output
     .output
-    .send(format!("{}{}", input.left, input.right))?;
+    .send(&format!("{}{}", input.left, input.right))?;
   Ok(())
 }
 ```
@@ -64,8 +58,10 @@ Our component name needs to change and the input needs reflect that we're sendin
 
 ```sh
 $ make
-$ vow run ./build/my_component_s.wasm concatenate '{"left":"Hello","right":" world"}'
-{"output":{"error_kind":"None","value":"Hello world"}}
+$ vow run ./build/my_component_s.wasm concatenate \
+  --data 'left="Hello"' \
+  --data 'right=" World"'
+{"output":{"value":"Hello World"}}
 ```
 
 Success! Collections of components are called "providers" in Vino lingo and our collection is now starting to feel like one.

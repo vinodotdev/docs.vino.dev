@@ -6,24 +6,21 @@ description: >
   How to install `vino`, `vow`, & `vinoc`
 ---
 
-Installing Vino from source is the best way to be up-to-date for now.
+## Pre-build binary installation
 
-## Clone from git
+Head over to [releases.vino.dev](https://releases.vino.dev/) to get the latest version of the Vino tools for your platform
 
-```sh
-$ git clone https://github.com/vinodotdev/vino && cd vino
-```
+Unless you are developing on Vino, you should stick with the pre-built binaries.
 
-## Install with `make`
+## Building from source
 
-```sh
-$ make install
-```
+{{% pageinfo %}}
+_Note: The source code for Vino tools is available to limited users at the moment. Vino and its tools will be open sourced once the Vino runtime is mature enough to be released publicly._
+{{% /pageinfo %}}
 
-## Run tests
-
-If you're developing with Vino, you can run the full test suite with:
+`make install` will build everything in the Vino monorepo and install any binaries into your `~/.cargo/bin` directory.
 
 ```sh
-$ make test
+$ git clone https://github.com/vinodotdev/vino
+$ cd vino && make install
 ```

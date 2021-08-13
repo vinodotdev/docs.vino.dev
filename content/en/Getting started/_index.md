@@ -1,7 +1,7 @@
 ---
 title: "Getting Started"
 linkTitle: "Getting Started"
-weight: 3
+weight: 2
 description: >
   Building your first components.
 ---
