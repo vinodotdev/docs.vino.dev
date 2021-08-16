@@ -36,7 +36,7 @@ Build and run your component with the new logic to see the output:
 ```sh
 $ make
 $ vow run ./build/my_component_s.wasm greet '{"input":"my_input"}'
-{"output":{"error_kind":"None","value":"Hello my_input"}}
+{"output":{"value":"Hello my_input"}}
 ```
 
 {{% pageinfo %}}

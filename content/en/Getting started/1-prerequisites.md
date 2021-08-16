@@ -10,11 +10,7 @@ description: >
 
 Vino can run WebAssembly built from any language, but the current code generation tools prioritize Rust above others and this guide expects a Rust development environment with Cargo.
 
-Install rust & cargo via [rustup](https://rustup.rs/) via
-
-```sh
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```
+Install rust & cargo via [rustup](https://rustup.rs/) for Windows, Mac, or Linux. Windows users may need to install the [C++ build tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) with the "Desktop development with C++" module.
 
 ### WebAssembly target for Rust
 
@@ -30,19 +26,7 @@ rustup target add wasm32-unknown-unknown
 
 Vino's support scripts are written in JavaScript and some WIDL parsing and code generation depends on node.js.
 
-Install node.js & npm via [nvm](https://github.com/nvm-sh/nvm):
-
-```sh
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-
-# Reload your shell to get nvm added to your $PATH
-
-exec $SHELL
-
-# Use nvm to install the latest LTS node and make it the default
-
-nvm install --lts --default
-```
+Install node.js & npm via [nvm](https://github.com/nvm-sh/nvm) on Mac or Linux or [nvm-windows](https://github.com/coreybutler/nvm-windows/releases) on Windows.
 
 ### `tomlq`
 
@@ -53,17 +37,6 @@ Install `tomlq` with
 ```
 cargo install tomlq
 ```
-
-<!--
-### `widl-template`
-
-[widl-template](https://github.com/jsoverson/widl-template) is a templating tool that uses WIDL files as input for Handlebars templates. Vino uses `widl-template` to generated code and documentation for its manifest formats.
-
-Install `widl-template` with
-
-```
-npm install -g widl-template
-``` -->
 
 ### `vino-codegen`
 
@@ -80,3 +53,19 @@ Install yeoman's command line tool `yo` and Vino's generator with:
 ```sh
 npm install -g yo generator-vino
 ```
+
+## `make` on Windows
+
+Vino and generated projects use Makefiles to automate builds and code generation. The easiest way to install `make` on Windows is via [Chocolatey](https://chocolatey.org/install).
+
+```sh
+$ choco install make
+```
+
+## Optional: `docker` and `oras` for publishing artifacts
+
+Docker is a platform for running containers and the `oras` project is a standard way of interfacing with arbitrary OCI registries. They are not required to build the project but `docker` is used to spin up a local registry and `oras` is used to publish an artifact to demonstrate remote execution.
+
+Install docker from [docker.com](https://docs.docker.com/get-docker/).
+
+Install oras from [oras.land/cli/](oras.land/cli).

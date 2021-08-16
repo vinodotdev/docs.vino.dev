@@ -22,12 +22,20 @@ _Tip: Starting `vow serve` without providing `--port` will cause `vow` to choose
 
 `vinoc` is the vino controller which can talk to providers (such as your WebAssembly module) over the Vino RPC protocol. Using the port from above, run `vinoc` to make the same request we made in the last step.
 
-```sh
-$ vinoc invoke --port=8060 concatenate  \
-  --data 'left="Hello"' \
-  --data 'right=" World"'
+{{< tabpane >}}
+{{< tab header="Bash" >}}
+$ vinoc invoke --port=8060 concatenate \
+ --data 'left="Hello"' \
+ --data 'right=" World"'
 {"output":{"value":"Hello World"}}
-```
+{{< /tab >}}
+{{< tab header="Powershell" >}}
+vinoc invoke --port=8060 concatenate \
+ --data 'left=\"Hello\"' \
+ --data 'right=\" World\"'
+{"output":{"value":"Hello World"}}
+{{< /tab >}}
+{{< /tabpane >}}
 
 Congratulations, you just got a command line tool and a streaming GRPC microservice with a few lines of Rust and a wasm file!
 

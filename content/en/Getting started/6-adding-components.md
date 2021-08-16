@@ -56,12 +56,21 @@ pub(crate) fn job(input: Inputs, output: Outputs) -> JobResult {
 
 Our component name needs to change and the input needs reflect that we're sending data on multiple ports, but otherwise running `vow` is the same as in the earlier steps.
 
-```sh
+{{< tabpane >}}
+{{< tab header="Bash" >}}
 $ make
 $ vow run ./build/my_component_s.wasm concatenate \
-  --data 'left="Hello"' \
-  --data 'right=" World"'
+ --data 'left="Hello"' \
+ --data 'right=" World"'
 {"output":{"value":"Hello World"}}
-```
+{{< /tab >}}
+{{< tab header="Powershell" >}}
+make
+vow run ./build/my_component_s.wasm concatenate \
+ --data 'left=\"Hello\"' \
+ --data 'right=\" World\"'
+{"output":{"value":"Hello World"}}
+{{< /tab >}}
+{{< /tabpane >}}
 
 Success! Collections of components are called "providers" in Vino lingo and our collection is now starting to feel like one.

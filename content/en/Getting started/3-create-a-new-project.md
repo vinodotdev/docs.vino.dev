@@ -8,17 +8,21 @@ description: >
 
 ## Create an empty directory
 
-```shell
+```sh
 $ mkdir my-component && cd my-component
 ```
 
 ## Run `yo vino`
 
-```shell
+```sh
 $ yo vino
 ```
 
 Yeoman will ask you several questions that it will use to bootstrap your project well.
+
+{{% pageinfo %}}
+_Note: The generated project comes with some recommended and default settings for Visual Studio Code users. Feel free to ignore, change, or remove them. They are not required to build the project._
+{{% /pageinfo %}}
 
 ## Your first schema
 
