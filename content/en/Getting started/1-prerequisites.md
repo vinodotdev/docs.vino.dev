@@ -68,4 +68,4 @@ Docker is a platform for running containers and the `oras` project is a standard
 
 Install docker from [docker.com](https://docs.docker.com/get-docker/).
 
-Install oras from [oras.land/cli/](oras.land/cli).
+Install oras from [oras.land/cli/](https://oras.land/cli/).
