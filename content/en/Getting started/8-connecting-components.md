@@ -12,9 +12,7 @@ The following command pipes one execution of vow into another, both running the 
 
 {{< tabpane >}}
 {{< tab header="Bash" >}}
-$ vow run ./build/my_component_s.wasm concatenate \
- --data 'left="Jane"' \
- --data 'right=" Doe"' | \
+$ vow run ./build/my_component_s.wasm concatenate -- --left=Jane --right=" Doe" |\
  vow run ./build/my_component_s.wasm greet
 {"output":{"value":"Hello Jane Doe"}}
 {{< /tab >}}
@@ -40,16 +38,14 @@ Every tool in the Vino suite talks the same language so switching from one to an
 Start up WebAssembly microservice to use it as a sample microservice...
 
 ```sh
-$ vow serve ./build/my_component_s.wasm --port 8060
+$ vow serve ./build/my_component_s.wasm --rpc --rpc-port 8060
 ```
 
 ...then run the following command...
 
 {{< tabpane >}}
 {{< tab header="Bash" >}}
-$ vow run ./build/my_component_s.wasm concatenate \
- --data 'left="Jane"' \
- --data 'right=" Doe"' | \
+$ vow run ./build/my_component_s.wasm concatenate -- --left=Jane --right=" Doe" |\
  vinoc invoke --port 8060 greet
 {"output":{"value":"Hello Jane Doe"}}
 {{< /tab >}}

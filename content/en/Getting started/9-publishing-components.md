@@ -30,8 +30,8 @@ To run your components remotely all you do is pass the registry URL to vow in pl
 
 {{< tabpane >}}
 {{< tab header="Bash" >}}
-$ vow run 127.0.0.1:5000/test/my-component:latest greet --data 'input="hi"' \
- --latest --insecure 127.0.0.1:5000
+$ vow run 127.0.0.1:5000/test/my-component:latest greet --latest --insecure 127.0.0.1:5000 -- \
+ --input="Jane Doe"
 {"output":{"value":"Hello Jane Doe"}}
 {{< /tab >}}
 {{< tab header="Powershell" >}}

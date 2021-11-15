@@ -37,35 +37,28 @@ If all has gone well, you will see nothing. Our component doesn't output anythin
 
 {{< tabpane >}}
 {{< tab header="Bash" >}}
-$ vow run ./build/my_component_s.wasm greet --data 'input="my_input"' --trace
-[2021-08-13T14:20:33Z][t] Logger initialized
-[2021-08-13T14:20:33Z][d] Loading wasm ./build/my_component_s.wasm
-[2021-08-13T14:20:33Z][d] WASM:AS_FILE:./build/my_component_s.wasm
-[2021-08-13T14:20:33Z][d] WASM:START:1 Threads
-[2021-08-13T14:20:33Z][t] WASM:Wasmtime instance loaded in 337 μs
-[2021-08-13T14:20:33Z][d] WASM:Wasmtime initialized in 3648 μs
-[2021-08-13T14:20:33Z][d] PORT:'input', VALUE:'"my_input"'
-[2021-08-13T14:20:33Z][t] WASM:INVOKE:[ofp://__direct.prov/greet]
-[2021-08-13T14:20:33Z][t] WASM:INVOKE:greet:START
-[2021-08-13T14:20:33Z][t] WASM:INVOKE:greet:FINISH
+$ vow run ./build/my_component_s.wasm greet --trace -- --input="my_input"
+2021-11-15T15:56:42 TRACE Logger initialized
+2021-11-15T15:56:42 DEBUG Loading wasm ./build/my_component_s.wasm
+2021-11-15T15:56:42 DEBUG LOAD:AS_FILE:./build/my_component_s.wasm
+2021-11-15T15:56:42 TRACE WASM:Wasmtime instance loaded in 2539 μs
+2021-11-15T15:56:42 DEBUG WASM:Wasmtime initialized in 3285 μs
+2021-11-15T15:56:42 DEBUG Spawning host
+2021-11-15T15:56:42 DEBUG Input 'my_input' for argument 'input' is not valid JSON. Wrapping it with quotes to make it a valid string value.
+2021-11-15T15:56:42 TRACE WASM:INVOKE:[ofp://__direct.prov/greet]
+2021-11-15T15:56:42 DEBUG Invoking from pool
+2021-11-15T15:56:42 DEBUG WASM:INVOKE[greet]:ID[1835346468]:PAYLOAD{"input": [168, 109, 121, 95, 105, 110, 112, 117, 116]}
+2021-11-15T15:56:42 TRACE WASM:INVOKE[greet]:ID[1835346468]:START
+2021-11-15T15:56:42 TRACE WASM:INVOKE[greet]:ID[1835346468]:FINISH[26 μs]
+2021-11-15T15:56:42 DEBUG WASM:INVOKE[greet]:ID[1835346468]:RESULT:Ok([192])
 {{< /tab >}}
 {{< tab header="Powershell" >}}
-vow run ./build/my_component_s.wasm greet --data 'input=\"my_input\"' --trace
-[2021-08-13T14:20:33Z][t] Logger initialized
-[2021-08-13T14:20:33Z][d] Loading wasm ./build/my_component_s.wasm
-[2021-08-13T14:20:33Z][d] WASM:AS_FILE:./build/my_component_s.wasm
-[2021-08-13T14:20:33Z][d] WASM:START:1 Threads
-[2021-08-13T14:20:33Z][t] WASM:Wasmtime instance loaded in 337 μs
-[2021-08-13T14:20:33Z][d] WASM:Wasmtime initialized in 3648 μs
-[2021-08-13T14:20:33Z][d] PORT:'input', VALUE:'"my_input"'
-[2021-08-13T14:20:33Z][t] WASM:INVOKE:[ofp://__direct.prov/greet]
-[2021-08-13T14:20:33Z][t] WASM:INVOKE:greet:START
-[2021-08-13T14:20:33Z][t] WASM:INVOKE:greet:FINISH
+TODO
 {{< /tab >}}
 {{< /tabpane >}}
 
 {{% pageinfo %}}
-_Note: The name of your component is dictated by the `namespace` definition in your schema. The filename and associated Rust module is dictated by the **filename** of your schema._
+_Note: The name of your component is dictated by the `namespace` definition in your schema. The filename is normalized based on best practices for the target language._
 {{% /pageinfo %}}
 
 In the next step we'll add logic to our component.

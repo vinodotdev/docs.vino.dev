@@ -59,17 +59,11 @@ Our component name needs to change and the input needs reflect that we're sendin
 {{< tabpane >}}
 {{< tab header="Bash" >}}
 $ make
-$ vow run ./build/my_component_s.wasm concatenate \
- --data 'left="Hello"' \
- --data 'right=" World"'
+$ vow run ./build/my_component_s.wasm concatenate -- --left=Hello --right=" World"
 {"output":{"value":"Hello World"}}
 {{< /tab >}}
 {{< tab header="Powershell" >}}
-make
-vow run ./build/my_component_s.wasm concatenate \
- --data 'left=\"Hello\"' \
- --data 'right=\" World\"'
-{"output":{"value":"Hello World"}}
+TODO
 {{< /tab >}}
 {{< /tabpane >}}
 

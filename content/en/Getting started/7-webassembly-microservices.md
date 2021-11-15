@@ -9,9 +9,10 @@ description: >
 To turn your WebAssembly module into a microservice, change the command you use with `vow` from `run` to `serve` and remove the extra flags. That's it.
 
 ```sh
-$ vow serve ./build/my_component_s.wasm --port 8060
-[2021-08-13T14:54:13Z][I] Starting insecure server on 127.0.0.1:8060
-[2021-08-13T14:54:13Z][I] Waiting for ctrl-C
+$ vow serve ./build/my_component_s.wasm --rpc --rpc-port 8060
+2021-11-15T16:02:28  INFO Starting RPC server
+2021-11-15T16:02:28  INFO GRPC server bound to 127.0.0.1 on port 8060
+2021-11-15T16:02:28  INFO Waiting for ctrl-C
 ```
 
 {{% pageinfo %}}
@@ -24,9 +25,7 @@ _Tip: Starting `vow serve` without providing `--port` will cause `vow` to choose
 
 {{< tabpane >}}
 {{< tab header="Bash" >}}
-$ vinoc invoke --port=8060 concatenate \
- --data 'left="Hello"' \
- --data 'right=" World"'
+$ vinoc invoke --port=8060 concatenate -- --left=Hello --right=" World"
 {"output":{"value":"Hello World"}}
 {{< /tab >}}
 {{< tab header="Powershell" >}}
