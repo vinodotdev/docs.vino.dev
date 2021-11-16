@@ -47,7 +47,7 @@ use crate::generated::concatenate::*;
 pub(crate) fn job(input: Inputs, output: Outputs) -> JobResult {
   output
     .output
-    .send(&format!("{}{}", input.left, input.right))?;
+    .done(&format!("{} {}", input.left, input.right))?;
   Ok(())
 }
 ```
@@ -56,15 +56,10 @@ pub(crate) fn job(input: Inputs, output: Outputs) -> JobResult {
 
 Our component name needs to change and the input needs reflect that we're sending data on multiple ports, but otherwise running `vow` is the same as in the earlier steps.
 
-{{< tabpane >}}
-{{< tab header="Bash" >}}
+```sh
 $ make
-$ vow run ./build/my_component_s.wasm concatenate -- --left=Hello --right=" World"
+$ vow run ./build/my_component_s.wasm concatenate -- --left=Hello --right=World
 {"output":{"value":"Hello World"}}
-{{< /tab >}}
-{{< tab header="Powershell" >}}
-TODO
-{{< /tab >}}
-{{< /tabpane >}}
+```
 
 Success! Collections of components are called "providers" in Vino lingo and our collection is now starting to feel like one.

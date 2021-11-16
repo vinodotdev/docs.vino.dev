@@ -28,17 +28,10 @@ oras push 127.0.0.1:5000/test/my-component:latest build/my_component_s.wasm
 
 To run your components remotely all you do is pass the registry URL to vow in place of the filename we've used previously. `vow` will take care of fetching and caching the remote artifact.
 
-{{< tabpane >}}
-{{< tab header="Bash" >}}
+```sh
 $ vow run 127.0.0.1:5000/test/my-component:latest greet --latest --insecure 127.0.0.1:5000 -- \
  --input="Jane Doe"
 {"output":{"value":"Hello Jane Doe"}}
-{{< /tab >}}
-{{< tab header="Powershell" >}}
-vow run 127.0.0.1:5000/test/my-component:latest greet --data 'input=\"hi\"' \
- --latest --insecure 127.0.0.1:5000
-{"output":{"value":"Hello Jane Doe"}}
-{{< /tab >}}
-{{< /tabpane >}}
+```
 
 Hopefully everything feels like it "just works" which is what Vino should always feel like. Now that we can make simple connections between local and remote components, it's time to step it up to more complex configurations. For that, we need schematics.

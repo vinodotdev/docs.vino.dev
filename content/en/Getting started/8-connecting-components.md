@@ -10,20 +10,11 @@ The command line is a pipeline of streaming data where every component feeds dir
 
 The following command pipes one execution of vow into another, both running the same `wasm` but pointing to different components.
 
-{{< tabpane >}}
-{{< tab header="Bash" >}}
-$ vow run ./build/my_component_s.wasm concatenate -- --left=Jane --right=" Doe" |\
+```sh
+$ vow run ./build/my_component_s.wasm concatenate -- --left=Jane --right=Doe |\
  vow run ./build/my_component_s.wasm greet
 {"output":{"value":"Hello Jane Doe"}}
-{{< /tab >}}
-{{< tab header="Powershell" >}}
-vow run ./build/my_component_s.wasm concatenate \
- --data 'left=\"Jane\"' \
- --data 'right=\" Doe\"' | \
- vow run ./build/my_component_s.wasm greet
-{"output":{"value":"Hello Jane Doe"}}
-{{< /tab >}}
-{{< /tabpane >}}
+```
 
 `vow` output is directly pipable to another execution of `vow`! You can string together any number of connections to experiment, test, or build on the command line.
 
@@ -43,19 +34,10 @@ $ vow serve ./build/my_component_s.wasm --rpc --rpc-port 8060
 
 ...then run the following command...
 
-{{< tabpane >}}
-{{< tab header="Bash" >}}
-$ vow run ./build/my_component_s.wasm concatenate -- --left=Jane --right=" Doe" |\
+```sh
+$ vow run ./build/my_component_s.wasm concatenate -- --left=Jane --right=Doe |\
  vinoc invoke --port 8060 greet
 {"output":{"value":"Hello Jane Doe"}}
-{{< /tab >}}
-{{< tab header="Powershell" >}}
-vow run ./build/my_component_s.wasm concatenate \
- --data 'left=\"Jane\"' \
- --data 'right=\" Doe\"' | \
- vinoc invoke --port 8060 greet
-{"output":{"value":"Hello Jane Doe"}}
-{{< /tab >}}
-{{< /tabpane >}}
+```
 
 In the next step we will publish our artifact to a remote registry so we can access it anywhere.

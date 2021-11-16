@@ -13,7 +13,7 @@ use crate::generated::my_component::*;
 
 pub(crate) fn job(input: Inputs, output: Outputs) -> JobResult {
   let greeting = format!("Hello {}", input.input);
-  output.output.send(&greeting)?;
+  output.output.done(&greeting)?;
   Ok(())
 }
 ```
@@ -22,10 +22,10 @@ Take note of these lines:
 
 ```rust
 let greeting = format!("Hello {}", input.input);
-output.output.send(&greeting)?;
+output.output.done(&greeting)?;
 ```
 
-The first line uses Rust's `format!()` macro to format our input string into a suitable greeting. If you're new to Rust, this is idiomatic Rust, not Vino. The second line takes that greeting string and pushes it to the output port named `output`.
+The first line uses Rust's `format!()` macro to format our input string into a suitable greeting. If you're new to Rust, this is idiomatic Rust, not Vino. The second line takes that greeting string and pushes it to the output port named `output` and closes it in one command.
 
 {{% pageinfo %}}
 _Tip: Change the port names in your schema WIDL and rebuild your component to see how the code generation reflects the changes._
@@ -35,7 +35,7 @@ Build and run your component with the new logic to see the output:
 
 ```sh
 $ make
-$ vow run ./build/my_component_s.wasm greet '{"input":"my_input"}'
+$ vow run ./build/my_component_s.wasm greet -- --input="my_input"
 {"output":{"value":"Hello my_input"}}
 ```
 

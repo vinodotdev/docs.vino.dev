@@ -5,4 +5,32 @@ description: >
   The Vino host.
 ---
 
-The public release of `vino` is close! Sign up at [vino.dev](https://vino.dev/) to get notified of future updates.
+`vino` is the runtime executor for vino manifests and networks.
+
+## USAGE
+
+```sh
+vino <SUBCOMMAND>
+```
+
+## Subcommands
+
+### serve
+
+Start a persistent host from a manifest
+
+### run
+
+Load a manifest and run the default schematic
+
+### list
+
+Print the schematics and their accessible components for the passed manifest
+
+### test
+
+Execute a schematic with test data and assert its output
+
+### help
+
+Prints this message or the help of the given subcommand(s)

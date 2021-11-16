@@ -24,19 +24,13 @@ _Note: The build process also generates source code from your schema(s). Do not 
 
 Use [`vow`] to load your module and execute a component on the command line, sending the string `"my_input"` to the input port named `input`.
 
-{{< tabpane >}}
-{{< tab header="Bash" >}}
-vow run ./build/my_component_s.wasm greet --data 'input="my_input"'
-{{< /tab >}}
-{{< tab header="Powershell" >}}
-vow run ./build/my_component_s.wasm greet --data 'input=\"my_input\"'
-{{< /tab >}}
-{{< /tabpane >}}
+```sh
+vow run ./build/my_component_s.wasm greet -- --input="my_input"
+```
 
-If all has gone well, you will see nothing. Our component doesn't output anything so we don't get anything in our output. To convince ourselves that something is actually happening, pass `--trace` or `--debug` to vow for more output. You should see something similar to the below.
+If all has gone well, you will see nothing. Our component doesn't output anything so we don't get anything in our output. To convince ourselves that something is actually happening, pass `--trace` or `--debug` to [`vow`] for more output. Remember to add the flag before the `--` which separates arguments for [`vow`] vs arguments destined for the executed module. You should see something similar to the below.
 
-{{< tabpane >}}
-{{< tab header="Bash" >}}
+```sh
 $ vow run ./build/my_component_s.wasm greet --trace -- --input="my_input"
 2021-11-15T15:56:42 TRACE Logger initialized
 2021-11-15T15:56:42 DEBUG Loading wasm ./build/my_component_s.wasm
@@ -51,11 +45,7 @@ $ vow run ./build/my_component_s.wasm greet --trace -- --input="my_input"
 2021-11-15T15:56:42 TRACE WASM:INVOKE[greet]:ID[1835346468]:START
 2021-11-15T15:56:42 TRACE WASM:INVOKE[greet]:ID[1835346468]:FINISH[26 μs]
 2021-11-15T15:56:42 DEBUG WASM:INVOKE[greet]:ID[1835346468]:RESULT:Ok([192])
-{{< /tab >}}
-{{< tab header="Powershell" >}}
-TODO
-{{< /tab >}}
-{{< /tabpane >}}
+```
 
 {{% pageinfo %}}
 _Note: The name of your component is dictated by the `namespace` definition in your schema. The filename is normalized based on best practices for the target language._
