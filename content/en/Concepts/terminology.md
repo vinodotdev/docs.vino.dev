@@ -11,7 +11,7 @@ Vino _components_ are the smallest unit of logic in Vino and can be thought of l
 
 ### Ports
 
-Vino _ports_ are asynchronous streams of versioned, chunked tuples.
+Vino _ports_ are asynchronous streams of (vino) packets. A packet is a versioned unit of data that can hold an internal signal, a successful value (in multiple intermediary formats) or a failure value.
 
 In everyday terms, Vino's ports are the inputs and outputs to components. They can represent any kind of data, from simple to complex, asynchronous to synchronous, successful computation to internal error or edge cases. Vino's ports are what make it possible to connect arbitrary components.
 
