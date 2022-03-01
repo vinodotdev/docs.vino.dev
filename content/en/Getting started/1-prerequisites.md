@@ -62,10 +62,6 @@ Vino and generated projects use Makefiles to automate builds and code generation
 $ choco install make
 ```
 
-## Optional: `docker` and `oras` for publishing artifacts
-
-Docker is a platform for running containers and the `oras` project is a standard way of interfacing with arbitrary OCI registries. They are not required to build the project but `docker` is used to spin up a local registry and `oras` is used to publish an artifact to demonstrate remote execution.
+## Optional: `docker` or an existing OCI registry for publishing artifacts
 
 Install docker from [docker.com](https://docs.docker.com/get-docker/).
-
-Install oras from [oras.land/cli/](oras.land/cli).

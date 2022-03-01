@@ -21,7 +21,7 @@ _Note: This will spin up an insecure local registry. It's suitable for testing b
 Run the following command to publish `build/my_component_s.wasm` to the path and tag `test/my-component:latest` on the registry we spun up at `127.0.0.1:5000`.
 
 ```sh
-oras push 127.0.0.1:5000/test/my-component:latest build/my_component_s.wasm
+vinoc push 127.0.0.1:5000/test/my-component:latest build/my_component_s.wasm --insecure 127.0.0.1:5000
 ```
 
 ### Fetch your remote components

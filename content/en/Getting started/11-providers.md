@@ -9,9 +9,9 @@ description: >
 
 Now that we can make new providers and components out of a yaml file, we can connect them the same way we did with WASM modules by using a provider kind of `Network`. As with `WaPC`, the `reference` is a filesystem path or OCI url.
 
-Save the following in a file called `greetings.yaml`.
+Save the following in a file called `host.yaml`.
 
-```yaml {title="./greetings.yaml"}
+```yaml {title="./host.yaml"}
 ---
 # yaml-language-server: $schema=https://vino.dev/schemas/manifest/v0.json
 version: 0
